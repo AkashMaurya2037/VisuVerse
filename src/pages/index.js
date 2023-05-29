@@ -1,7 +1,7 @@
 import Home from "./Home"
 import CreatePost from "./CreatePost"
 
-export  {
+export   {
     Home,
     CreatePost
 }
