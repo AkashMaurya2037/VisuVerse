@@ -1,11 +1,27 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Home = () => {
+import { preview } from '../assets'
+import {getRandomPrompt} from "../utils"
+import { FormField, Loader } from '../Components'
+
+const CreatePost = () => {
+  const navigate = useNavigate()
+
+  const [form, setForm] = useState({
+    "name":"",
+    "prompt":"",
+    "photo":"",
+  })
+
+  const [generatingImg,setGeneratingImg] =useState(false)
+  const [loading ,setLoading] =useState(false)
+
   return (
-    <div>
+    <section className='max-w-7x1 mx-auto'>
       
-    </div>
+    </section>
   )
 }
 
-export default Home
+export default CreatePost
