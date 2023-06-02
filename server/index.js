@@ -6,7 +6,7 @@ import connectDB from "./mongodb/connect.js";
 import dalleRoutes from "./routes/dalleRoutes.js";
 import postRoutes from "./routes/postRoutes.js";
 
-const port = 8000;
+const port = 8080;
 
 dotenv.config();
 
