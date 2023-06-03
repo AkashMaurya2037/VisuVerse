@@ -28,7 +28,7 @@ const CreatePost = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            prompt: form.prompt,
+            prompt: form.prompt.trim(),
           }),
         });
 
@@ -44,32 +44,33 @@ const CreatePost = () => {
     }
   };
 
-  const handleSubmit = async(e) => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    if(form.prompt && form.photo){
-      setLoading(true)
+    if (form.prompt && form.photo) {
+      setLoading(true);
+      
       try {
-        const response = await fetch('http://localhost:8080/api/v1/post',{
-          method:"POST",
-          headers:{
+        const response = await fetch("http://localhost:8080/api/v1/post", {
+          method: "POST",
+          headers: {
             "Content-Type": "application/json",
           },
-          body:JSON.stringify(form)
-        })
+          body: JSON.stringify(form),
+        });
 
-        await response.json()
+        await response.json();
+        console.log(response.json())
         navigate("/");
 
       } catch (error) {
-        alert(error)
-      }finally{
-        setLoading(false)
+        alert(error);
+      } finally {
+        setLoading(false);
       }
-    }else{
-      alert(`Please Enter a prompt and generate an image`)
+    } else {
+      alert(`Please Enter a prompt and generate an image`);
     }
-    
   };
 
   const handleChange = (e) =>
